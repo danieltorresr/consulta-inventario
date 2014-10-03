@@ -1,0 +1,63 @@
+  <form role="form" id="interseccionesForm">
+    <div class="row">
+      <div class="col-lg-6">
+         <div class="checkbox">
+            <label>
+              <input class="showMedicionesRubro" type="checkbox"> Mostrar mediciones anteriores.
+            </label>
+          </div>
+        <div class="row">
+          <div class="col-lg-12 padding">
+            
+            <div>               
+               <label for="cadInicial">Cadenamiento km.</label>
+                <input type="text" class="form-control input-sm" name="cadenamientoKm"  placeholder="Km
+                ">
+                <code id="cadKmText"></code>                          
+            </div>
+
+            <div>
+              <h5>Tipo de intersección</h5>
+              <div class="btn-group" data-toggle="buttons">            
+                <label class="btn btn-default active">
+                    <input type="radio" name="tipoInterseccion" value="cruce"><span>Cruce</span></button>
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="tipoInterseccion" value="entronque"><span>Entronque</span></button>
+                </label>
+              </div>
+            </div>
+            <button id="clearFormInt" class="btn btn-primary btn-sm format">Limpiar datos</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-12 padding">
+           
+            <div class="form-group form-group-sm col-lg-12">
+              <label for="latitud">Tipo de solución</label>
+              <select name="tipoSolucion" class="form-control input-sm">
+                <option data-idTipo="1" data-descripcion="Nivel" value="1">Nivel</option>
+                <option data-idTipo="2" data-descripcion="Desnivel" value="2">Desnivel</option>
+                <option data-idTipo="3" data-descripcion="PIV" value="3">PIV</option>
+                <option data-idTipo="4" data-descripcion="PSV" value="4">PSV</option>                
+              </select>
+            </div>  
+            
+            <div>
+              <div class="form-group form-group-sm col-lg-12">           
+                <label>Población de destino a la izquierda</label>
+                <input type="text" class="form-control input-sm" name="poblacionIzquierda"  placeholder="Poblacion a la izquierda">             
+              </div>
+              <div class="form-group form-group-sm col-lg-12">
+                <label>Población de destino a la derecha</label>
+                <input type="text" class="form-control input-sm" name="poblacionDerecha" placeholder="Población a la derecha">    
+              </div>           
+            </div>
+
+          </div>
+        </div>      
+      </div>
+    </div>
+  </form>

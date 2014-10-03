@@ -1,0 +1,45 @@
+body,html{
+	background-color: rgba(160,182,194,0.2);
+	/*font-family: "Helvetica Neue";
+	font-size: 18px;*/
+	line-height: 1.42857143;
+	color: #333;
+}
+.header{
+	overflow: hidden;
+}
+.header .info{
+	font-size: 15px;	
+	overflow: hidden;
+	display: inline-table;
+}
+.header .title{
+	font-size: 25px;	
+	overflow: hidden;
+	display: inline-table;
+	margin-top: 15px;
+}
+.header .imgLogo{
+	float: left;
+	margin-top: 15px;	
+}
+
+.header .imgSCTLogo{
+	float: right;
+	width: 250px;
+}
+.container, .row{
+	/*height: auto !important;*/
+	webkit-box-shadow: 0px 0px 3px 1px rgba(83,83,83,0.30);
+	-moz-box-shadow: 0px 0px 3px 1px rgba(83,83,83,0.30);
+	box-shadow: 0px 0px 3px 1px rgba(83,83,83,0.30);
+	background: white;
+}
+
+option:first {
+    color: #999;
+}
+
+#divTramos .dataTables_filter{
+	display: none;
+}
