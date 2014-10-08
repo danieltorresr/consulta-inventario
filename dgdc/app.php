@@ -10,101 +10,150 @@ session_start();
 	<link rel="stylesheet" href="library/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-		<div id="contenedor" class="row">					
-			<div id="fotos-panoramicas" class="col-lg-12">	
-				<!-- Screenshoot options-->
-				<div class="screenshot-opt">					
-					<div class="dropdown">
-						  <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-						    <span class="glyphicon glyphicon-camera"></span>
-						    <span class="caret"></span>
-						  </button>
-						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-						    <li role="presentation" id="generate-static-map"><a role="menuitem" tabindex="-1" href="#">Generar Screenshot</a></li>						    
-						  </ul>
-					</div>
-				</div>	
-				<!-- end -->
-				<!-- Cadenamiento opt-->
-				<div class="cad-opt">
-					<div class="form-group">
-					    <div class="input-group">						      					      
-					      <input class="form-control" type="text" name="searchText" placeholder="Cadenamiento">					      
-					      <div class="input-group-addon search-cad-img">
-					      	<span class="glyphicon glyphicon-search"></span> 
-					      </div>					      
+	<body>
+
+		<div class="header-main text-center">
+			<div class="info">
+				<h4 class="carretera_label"></h4>
+				<span class="sentido_label"></span><span class="carril_label"></span>
+				<br>
+				<span class="tramo_label"></span>	
+			</div>
+			<img class="imgLogo" src="img/dgdc.jpg">			
+			<img class="imgSCTLogo" src="img/SCT_logo.png">
+		</div>
+		<div id="contenedor" class="row">	
+			<div class="panel panel-default col-lg-6 navigation-viewer">		
+
+				<div class="panel-heading"><span class="glyphicon glyphicon-road"></span> <span>Carretera </span></div>
+
+			  <div class="panel-body">
+			    
+			  	<div id="fotos-panoramicas">	
+					<!-- Screenshoot options-->
+					<div class="screenshot-opt">					
+						<div class="dropdown">
+							  <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+							    <span class="glyphicon glyphicon-camera"></span>
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    <li role="presentation" id="generate-static-map"><a role="menuitem" tabindex="-1" href="#">Generar Screenshot</a></li>						    
+							  </ul>
 						</div>
-					</div>					
-				</div>
-				<!-- end-->
-				<!-- settings Screenshoot options-->
-				<div class="settings-opt">					
-					<div class="dropdown">
-						  <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
-						    <span class="glyphicon glyphicon-cog"></span>
-						    <span class="caret"></span>
-						  </button>
-						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-						    <li role="presentation" id="fastNavigaton">						    	
-								<a><label><input type="checkbox"><span class="glyphicon glyphicon-flash"></span> Navegacion rapida</label></a> 					    
-						    </li>
-						    <li role="presentation" id="saveUbication">						    	
-								<a><span class="glyphicon glyphicon-floppy-saved"></span> Guardar mi ubicacion</a>
-						    </li>			
-						    <li role="presentation" id="getSaveubication">						    	
-								<a> <span class="glyphicon glyphicon-map-marker"></span> Ultima ubicacion</a>
-						    </li>			    
-						  </ul>
-					</div>
-				</div>
-				<!-- end -->
-				<!-- images -->
-				<div class="images-panel">
-					<div class="images-body">
-						<img id="imgizq" class="col-lg-4" src="">
-						<img id="imgcen" class="col-lg-4" src="">   
-						<img id="imgder" class="col-lg-4" src=""> 
-					</div>					  
-				</div>				   
-				<!-- end -->
-				<!-- images navigator -->
-					<div class="images-navigator">
-						<button class="btn btn-sm img-opt">							
-							<span class="glyphicon glyphicon-picture"></span>							    
-						</button>						
-						<div class="btn-group  navigator-img-opts">
-						  <button id="primerImagen" type="button" class="btn btn-default"><span class="glyphicon glyphicon-step-backward"></span></button>
-						  <button id="anteriorImagen" type="button" class="btn btn-default"><span class="glyphicon glyphicon-backward"></span></button>
-						  <button id="siguienteImagen" type="button" class="btn btn-default"><span class="glyphicon glyphicon-forward"></span></button>
-						  <button id="ultimaImagen" type="button" class="btn btn-default"><span class="glyphicon glyphicon-step-forward"></span></button>
-						</div>  
 					</div>	
-				<!-- end -->
-			</div>
-			<div id="map-canvas" class="col-lg-6"></div>
-			<div id="tools"class="col-lg-6">
-				<div class="row">
-					<!--div id="tools-container" class="col-lg-12"></div-->
-					<div id="tools-rubros" class="col-lg-12"></div>
-					<div class="col-lg-12">
-						<ul id="myTab" class="nav nav-tabs" role="tablist">
-						  <li id="tabConstrucciones" class="active tabRubros"><a href="#construcciones" role="tab" data-toggle="tab">Construcciones</a></li>
-						  <li id="tabIntersecciones" class="tabRubros" ><a href="#intersecciones" role="tab" data-toggle="tab">Intersecciones</a></li>
-						  <li id="tabAccesos" class="tabRubros"><a href="#accesos" role="tab" data-toggle="tab">Accesos</a></li>
-						  <li id="tabCortesTerraplenes" class="tabRubros"><a href="#cortesTerraplenes" role="tab" data-toggle="tab">Cortes y Terraplenes</a></li>
-						</ul>
-						
-						<!-- Tab panes -->
-						<div class="tab-content">
-						  <div class="tab-pane active" id="construcciones"><?php include("vistas/construcciones.html");?></div>
-						  <div class="tab-pane" id="intersecciones"><?php include("vistas/intersecciones.html");?></div>
-						  <div class="tab-pane" id="accesos"><?php include("vistas/accesos.html");?></div>
-						  <div class="tab-pane" id="cortesTerraplenes"><?php include("vistas/cortesTerraplenes.html");?></div>
+					<!-- end -->
+					<!-- Cadenamiento opt-->
+					<div class="cad-opt">
+						<div class="form-group">
+						    <div class="input-group">						      					      
+						      <input class="form-control" type="text" name="searchText" placeholder="Cadenamiento">					      
+						      <div class="input-group-addon search-cad-img">
+						      	<span class="glyphicon glyphicon-search"></span> 
+						      </div>					      
+							</div>
+						</div>					
+					</div>
+					<!-- end-->
+					<!-- settings Screenshoot options-->
+					<div class="settings-opt">					
+						<div class="dropdown">
+							  <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+							    <span class="glyphicon glyphicon-cog"></span>
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+							    <li role="presentation" id="fastNavigaton">						    	
+									<a><label><input type="checkbox"><span class="glyphicon glyphicon-flash"></span> Navegacion rapida</label></a> 					    
+							    </li>
+							    <li role="presentation" id="saveUbication">						    	
+									<a><span class="glyphicon glyphicon-floppy-saved"></span> Guardar mi ubicacion</a>
+							    </li>			
+							    <li role="presentation" id="getSaveubication">						    	
+									<a> <span class="glyphicon glyphicon-map-marker"></span> Ultima ubicacion</a>
+							    </li>			    
+							  </ul>
 						</div>
-					</div>					
+					</div>
+					<!-- end -->
+					<!-- images -->
+					<div class="images-panel">
+						<div class="images-body">
+							<img id="imgizq" class="col-lg-4" src="">
+							<img id="imgcen" class="col-lg-4" src="">   
+							<img id="imgder" class="col-lg-4" src=""> 
+						</div>					  
+					</div>				   
+					<!-- end -->
+					<!-- images navigator -->
+						<div class="images-navigator">
+							<button class="btn btn-sm img-opt">							
+								<span class="glyphicon glyphicon-picture"></span>							    
+							</button>						
+							<div class="btn-group  navigator-img-opts">
+							  <button id="primerImagen" type="button" class="btn btn-default"><span class="glyphicon glyphicon-step-backward"></span></button>
+							  <button id="anteriorImagen" type="button" class="btn btn-default"><span class="glyphicon glyphicon-backward"></span></button>
+							  <button id="siguienteImagen" type="button" class="btn btn-default"><span class="glyphicon glyphicon-forward"></span></button>
+							  <button id="ultimaImagen" type="button" class="btn btn-default"><span class="glyphicon glyphicon-step-forward"></span></button>
+							</div>  
+						</div>	
+					<!-- end -->
 				</div>
+
+			  </div>			 
+
+			</div>				
+			
+
+			<!-- Mapa-->
+			<div class="panel panel-default col-lg-6 map-viewer">
+			  <div class="panel-heading"><span class="glyphicon glyphicon-map-marker"></span> Mapa</div>	
+			  <div class="panel-body">
+			    <div id="map-canvas"></div>
+			  </div>
+			</div>	
+			<!-- end-->
+
+			<!-- Screenshot -->
+			<div class="panel panel-default col-lg-6 screenshot-viewer">
+			  <div class="panel-heading"><span class="glyphicon glyphicon-screenshot"></span> Screenshot</div>	
+			  <div class="panel-body">
+			  	<img src="" id="screenshot-viewer">  	
+			  </div>
 			</div>
+			<!-- end -->	
+
+			<!-- Calculos -->
+			<div class="panel panel-default col-lg-6 calc-viewer">
+			  <div class="panel-heading"><span class="glyphicon glyphicon-list-alt"></span> Mediciones</div>	
+			  <div class="panel-body">
+			  	<div id="tools">
+					<div class="row">
+						<!--div id="tools-container" class="col-lg-12"></div-->
+						<div id="tools-rubros" class="col-lg-12"></div>
+						<div class="col-lg-12">
+							<ul id="myTab" class="nav nav-tabs" role="tablist">
+							  <li id="tabConstrucciones" class="active tabRubros"><a href="#construcciones" role="tab" data-toggle="tab">Construcciones</a></li>
+							  <li id="tabIntersecciones" class="tabRubros" ><a href="#intersecciones" role="tab" data-toggle="tab">Intersecciones</a></li>
+							  <li id="tabAccesos" class="tabRubros"><a href="#accesos" role="tab" data-toggle="tab">Accesos</a></li>
+							  <li id="tabCortesTerraplenes" class="tabRubros"><a href="#cortesTerraplenes" role="tab" data-toggle="tab">Cortes y Terraplenes</a></li>
+							</ul>
+							
+							<!-- Tab panes -->
+							<div class="tab-content">
+							  <div class="tab-pane active" id="construcciones"><?php include("vistas/construcciones.html");?></div>
+							  <div class="tab-pane" id="intersecciones"><?php include("vistas/intersecciones.html");?></div>
+							  <div class="tab-pane" id="accesos"><?php include("vistas/accesos.html");?></div>
+							  <div class="tab-pane" id="cortesTerraplenes"><?php include("vistas/cortesTerraplenes.html");?></div>
+							</div>
+						</div>					
+					</div>
+				</div>  	
+			  </div>
+			</div>
+			<!-- end -->
+
+
 		</div>
 
 		<!-- Canvas to screenshot -->

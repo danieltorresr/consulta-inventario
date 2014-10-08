@@ -1,4 +1,4 @@
-	$('#map-canvas').css('height', '50%');
+	$('#map-canvas').css('height', '90%');
 
 	var mapOptions = {
     zoom: 18,

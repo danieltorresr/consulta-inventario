@@ -39,7 +39,7 @@ class FsFiles extends ConexionMongodbInventario
 	}
 
 	function getInventario($q){
-		$response = $this->gridFS->find($q);
+		$response = $this->gridFS->find($q)->sort(array('cadenamiento' => 1));
 		return iterator_to_array($response);
 	}
 

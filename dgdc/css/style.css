@@ -1,8 +1,10 @@
 html, body, #contenedor{
-	height: 100%;
+	/*height: 100%;*/
 	font-family: "Century Gothic";
 	font-size: 12.4px;
-	background-image: url('data:image/jpg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAICAgICAgICAgIDAgICAwQDAgIDBAUEBAQEBAUGBQUFBQUFBgYHBwgHBwYJCQoKCQkMDAwMDAwMDAwMDAwMDAz/2wBDAQMDAwUEBQkGBgkNCwkLDQ8ODg4ODw8MDAwMDA8PDAwMDAwMDwwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAAoABoDAREAAhEBAxEB/8QAGgABAAMAAwAAAAAAAAAAAAAAAgABAwQFCf/EADEQAAIBAgMEBwgDAAAAAAAAAAECEQMSACExEzJBYQQiUVJTVKEUIzNCYnGBkUOisf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAwDAQACEQMRAD8A9xAEqe7NSWqMGilIV7d4guAAOU4w0aPRktcoqsMkIyULItBiBPFpjElKzCkGYZugZrB2CFCGZI5j9Ykra9H86d+7d/pr6a8sBOpswMwzI07NX6quZzVrZByMrlp24QTFUFWmkPTqoDUFxJQCAs8pEemJA7KpViVEn3sliWfhmBvTw4cMRae01fHO7O8Ne5u6+uAVmlKo7NULvLZyFzRwZL/SsZQP8wpLkpOWFjK/Wd4NxMQIgwAOE6/fEgdagquylkFNmNhWATl1TnkD8vriQ+0VvJ9I39r/ABfvXX1wES6gtU2kuptqG8uAV4uFi4gTB0Bxamqt0YsK6VCbFAYKVCtB7uUfnEFkKDfcmYuUBiwLcOHbxIj8YS2l/HGvcPxu3f09cQcTqbTqIalOqbVpIhdYfMXEwRmOS4CZLkVcqVViAKasCSr80AiIH35YQlUobm2LQaQDRBckaMFiCOwnEXW7Wr5NPMaVNfE3vifVjJj/2Q==');
+	/*background-image: url('data:image/jpg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAICAgICAgICAgIDAgICAwQDAgIDBAUEBAQEBAUGBQUFBQUFBgYHBwgHBwYJCQoKCQkMDAwMDAwMDAwMDAwMDAz/2wBDAQMDAwUEBQkGBgkNCwkLDQ8ODg4ODw8MDAwMDA8PDAwMDAwMDwwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAAoABoDAREAAhEBAxEB/8QAGgABAAMAAwAAAAAAAAAAAAAAAgABAwQFCf/EADEQAAIBAgMEBwgDAAAAAAAAAAECEQMSACExEzJBYQQiUVJTVKEUIzNCYnGBkUOisf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAwDAQACEQMRAD8A9xAEqe7NSWqMGilIV7d4guAAOU4w0aPRktcoqsMkIyULItBiBPFpjElKzCkGYZugZrB2CFCGZI5j9Ykra9H86d+7d/pr6a8sBOpswMwzI07NX6quZzVrZByMrlp24QTFUFWmkPTqoDUFxJQCAs8pEemJA7KpViVEn3sliWfhmBvTw4cMRae01fHO7O8Ne5u6+uAVmlKo7NULvLZyFzRwZL/SsZQP8wpLkpOWFjK/Wd4NxMQIgwAOE6/fEgdagquylkFNmNhWATl1TnkD8vriQ+0VvJ9I39r/ABfvXX1wES6gtU2kuptqG8uAV4uFi4gTB0Bxamqt0YsK6VCbFAYKVCtB7uUfnEFkKDfcmYuUBiwLcOHbxIj8YS2l/HGvcPxu3f09cQcTqbTqIalOqbVpIhdYfMXEwRmOS4CZLkVcqVViAKasCSr80AiIH35YQlUobm2LQaQDRBckaMFiCOwnEXW7Wr5NPMaVNfE3vifVjJj/2Q==');
+	*/
+	background: rgba(160,182,194,0.2);	
 }
 
 .row{
@@ -115,8 +117,8 @@ h5{
 	margin-left: -100px;
 	z-index: 1;
 	width: 200px;
-	opacity: 0.7;
-	top: 5px;
+	opacity: 1;
+	top: 70px;
 }
 
 .cad-opt:hover{
@@ -129,15 +131,15 @@ h5{
 
 .images-navigator{
 	position: absolute;
-	bottom: 0;
-	right: 15px;
+	bottom: 40px;
+	right: 0px;
 	z-index: 1;
 	margin: 15px;
-	opacity: 0.5;
+	opacity: 1;
 }
 
 .img-opt{
-	display: block;
+	display: none;
 }
 
 .images-navigator:hover .img-opt{
@@ -149,11 +151,11 @@ h5{
 }
 
 .images-navigator:hover .navigator-img-opts{
-	display: block;
+	/*display: none;*/
 }
 
 .navigator-img-opts{
-	display: none;
+	display: block;
 }
 
 #screenshot-preview-img{
@@ -180,9 +182,14 @@ code{
 }
 
 .images-panel{
+	/*overflow: hidden;
+	height: 100%;	*/
+
 	overflow: hidden;
-	height: 97%;
-	margin-top: 5px;
+	height: 100%;
+	width: 115%;
+	margin-left: -50px;
+	margin-top: 80px;
 }
 
 .images-panel img{
@@ -206,16 +213,32 @@ code{
 /*viewer*/
 
 .header{
-	text-align: center;
+	/*text-align: center;
 	background: #428bca;
 	height: 25px;
 	color: white;
-	padding-top: 3px;	
+	padding-top: 3px;	*/
+
+	text-align: left;
+	background: white;
+	height: 25px;
+	color: #363636;
+	font-weight: bold;
+	padding: 0px;
+	padding-top: 3px;
+	border-bottom: 1px solid #ccc;
+	color: #333;
 }
 
 .body{
-	height: 25px;
+	/*height: 25px;
 	text-align: center;
+	padding-top: 3px;
+	background: white;
+	border: 1px solid #ddd;*/
+
+	height: 25px;
+	text-align: left;
 	padding-top: 3px;
 	background: white;
 	border: 1px solid #ddd;
@@ -223,4 +246,83 @@ code{
 
 .row{
 	margin-bottom: 10px;
+}
+
+.calc-viewer{
+	width: 48%;
+	float: left;
+}
+.map-viewer .panel-body{
+	height: 100%;
+	width: 100%;
+}
+
+.navigation-viewer{	
+	height: 450px;
+	width: 48%;
+	margin: 1% 0 1% 1%;
+}
+
+.map-viewer{	
+	height: 450px;
+	width: 48%;
+	margin: 1%;
+}
+
+.screenshot-viewer{
+	width: 48%;
+	margin: 0 1%;
+}
+
+.panel{
+	margin-bottom: 5px;
+}
+
+.panel-footer{
+	background: white;
+	border-top: none;
+}
+
+.panel-default>.panel-heading{
+	background-color: white;
+	font-size: 13px;
+}
+
+.calc-viewer .nav-tabs{
+display: none;
+}
+
+.screenshot-viewer .panel-body{
+	height: 350px;
+}
+
+.screenshot-viewer img{
+	width: 100%;
+	height: 100%;
+}
+
+.header-main{
+	overflow: hidden;
+	background: white;
+	padding: 15px;
+}
+.header-main .info{
+	font-size: 15px;	
+	overflow: hidden;
+	display: inline-table;
+}
+.header-main .title{
+	font-size: 25px;	
+	overflow: hidden;
+	display: inline-table;
+	margin-top: 15px;
+}
+.header-main .imgLogo{
+	float: left;
+	margin-top: 15px;	
+}
+
+.header-main .imgSCTLogo{
+	float: right;
+	width: 250px;
 }

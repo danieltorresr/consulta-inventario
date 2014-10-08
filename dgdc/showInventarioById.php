@@ -17,6 +17,10 @@
 
 	var editConstruncciones = {
 		init : function(response){
+			
+			//put screenshot
+			var screenshot = $('#screenshot-viewer');
+				screenshot.attr('src', response.screenshot);
 
 			//viewer
 			var viewer = $('#showConstruccionesViewer');
@@ -157,6 +161,10 @@
 			console.log("response",response);
 			$('#clearFormInt').hide();
 
+			//put screenshot
+			var screenshot = $('#screenshot-viewer');
+				screenshot.attr('src', response.screenshot);
+
 			currentRubro.interseccionProp.position = new google.maps.LatLng(response.coordenadas[1],response.coordenadas[0]);
 
 			//set marker 
@@ -183,30 +191,25 @@
 			}				
 			
 
-			//set tipo de interseccion
-			currentRubro.tagTipoInterseccion.closest('label').removeClass('active');
-			if(response.tipo == 'cruce'){
-				currentRubro.tagTipoInterseccion.eq(0).closest('label').addClass('active');
-			}else{
-				currentRubro.tagTipoInterseccion.eq(1).closest('label').addClass('active');
-			}
-			currentRubro.data.tipo = response.tipo;	
 
-			//set tipo de solucion
-			currentRubro.tagTipoSolucion.val(response.tipoSolucion.idtipo);
-			currentRubro.data.tipoSolucion = response.tipoSolucion;
+			//viewer
+			var viewer = $('#interseccionesForm');
 
-			//set poblaciones
-			currentRubro.data.destinos = response.destinos;
+			//set cad carretera 
+			viewer.find('#cadenamiento').text(response.cadCarretera);
 
-			//set poblacion de destino a la izquierda
-			currentRubro.tagPoblacionIzquierda.val(response.destinos[0].poblacion);		
+			//set tipo de interseccion			
+			viewer.find('#tipoInterseccion').text(response.tipo);
 
-			//set poblacion de destino a la derecha
-			currentRubro.tagPoblacionDerecha.val(response.destinos[1].poblacion);
+			//set tipo de solucion			
+			viewer.find('#tipoSolucion').text(response.tipoSolucion.descripcion);			
 
-			//set id to update record
-			currentRubro.data.id = response._id.$id;
+			//set poblacion de destino a la izquierda			
+			viewer.find('#poblacionIzquierda').text(response.destinos[0].poblacion);	
+
+			//set poblacion de destino a la derecha			
+			viewer.find('#poblacionDerecha').text(response.destinos[1].poblacion);
+			
 		}
 	},
 
@@ -214,6 +217,10 @@
 		init : function(response){
 			console.log("response",response);
 			$('#clearFormAccess').hide();
+
+			//put screenshot
+			var screenshot = $('#screenshot-viewer');
+				screenshot.attr('src', response.screenshot);
 
 			//set position
 			currentRubro.interseccionProp.position = new google.maps.LatLng(response.coordenadas[1],response.coordenadas[0]);
@@ -273,6 +280,10 @@
 			console.log("response",response);
 			$('#cortesTerraplenesLimpiar').hide();
 
+			//put screenshot
+			var screenshot = $('#screenshot-viewer');
+				screenshot.attr('src', response.screenshot);
+
 			//set positions
 			$.each(response.coordenadas, function(index, coo) {				
 				
@@ -315,7 +326,17 @@
 			currentRubro.tagMedida.val(response.medida);
 			currentRubro.data.medida = response.medida;
 
+			var viewer = $('#cortesTerraplenesForm');
 
+
+			//set cad inicial
+			viewer.find('#cadenamientoIni').text(response.cadCarretera.inicial);
+
+			//set cad final
+			viewer.find('#cadenamientoFin').text(response.cadCarretera.final);
+
+			//set medida del corte o terraplen
+			viewer.find('#medida').text(response.medida);
 
 			////////////////////////////////////////////////////////////////////////
 
@@ -332,25 +353,11 @@
 			
 
 			//set tipo terraplen / corte
-			currentRubro.tagTipo.closest('label').removeClass('active');
-			if(response.rubro=='corte'){
-				currentRubro.tagTipo.eq(0).closest('label').addClass('active');
-			}else{
-				currentRubro.tagTipo.eq(1).closest('label').addClass('active');	
-			}		
-			currentRubro.data.tipo = response.rubro;				
+			viewer.find('#tipo').text(response.rubro);		
 
-			//set posicion
-			currentRubro.tagUbicacion.closest('label').removeClass('active');
-			if(response.ubicacionLado == 'izquierdo'){
-				currentRubro.tagUbicacion.eq(0).closest('label').addClass('active');
-			}else{
-				currentRubro.tagUbicacion.eq(1).closest('label').addClass('active');		
-			}
+			//set posicion			
 			currentRubro.data.ubicacionLado = response.ubicacionLado;
-
-			//set id to update record
-			currentRubro.data.id = response._id.$id;
+			viewer.find('#posicion').text(response.ubicacionLado);			
 		}
 	};
 

@@ -10,16 +10,21 @@ class getGroupCarreteras extends ConexionMongodb
 		$consulta= array('$group' =>array('_id' =>array('carretera'=>'$carretera','tramo'=>'$tramo','sentido'=>'$sentido','carril'=>'$carril')));
 		$carreteras=$this->db->estaciones->aggregate($consulta)['result'];
 		$all = array();
+		$states = array();
 
 		foreach ($carreteras as $key => $value) {
-			$value['_id']['estado']	= "Morelos"; 
+			
+			/*temp data*/
+			$value['_id']['estado']	= explode('-',$value['_id']['carretera'])[0]; 
 			$value['_id']['ejeCarretero']	= 1; 
 			$value['_id']['concesionario']	= "CL"; 		
 			array_push($all, $value['_id']);
+			array_push($states, $value['_id']['estado']);
 
 		}
-
-		return json_encode($all);
+		
+		$response = array('states'=>array_unique($states),'data'=>$all);
+		return json_encode($response);
 	} 
 
 }

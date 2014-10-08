@@ -30,17 +30,19 @@
 		    <form class="form-inline" role="form">
 			  
 			  <div class="form-group filter_field">			    
-			    <select class="form-control">
+			    <select class="form-control searchByEstado">
 				  <option disabled selected>Estados</option>
-				  <option>2</option>
-				  <option>3</option>
-				  <option>4</option>
-				  <option>5</option>
+				  <option>Morelia</option>
+				  <option>Aguascalientes</option>
+				  <option>Guadalajara</option>
+				  <option>San Luis Potosi</option>
+				  <option>Colima</option>
+				  <option>Durango</option>
 				</select>
 			  </div>
 
 			  <div class="form-group filter_field">			    
-			    <select class="form-control">
+			    <select class="form-control searchByAprovechamiento">
 				  <option disabled selected>Aprovechamiento</option>
 				  <option>2</option>
 				  <option>3</option>
@@ -49,21 +51,15 @@
 				</select>
 			  </div>
 
-			  <div class="form-group filter_field">
-			    <div class="input-group">			      
-			      <input class="form-control" type="email" placeholder="Cadenamiento Inicial">
-			      <div class="input-group-addon">Km</div>
-			    </div>
-			  </div>
-
-			  <div class="form-group filter_field">
-			    <div class="input-group">			      
-			      <input class="form-control" type="email" placeholder="Cadenamiento Final">
-			      <div class="input-group-addon">Km</div>
-			    </div>
-			  </div>
+			  <div class="form-group">
+			    <label class="sr-only" for="exampleInputPassword2">Password</label>
+			    <input type="text" class="form-control searchByTramo" placeholder="Tramo">
+			  </div>	 
 
 			</form>  
+
+			 <button class="btn btn-default btn-sm clear-filter"><span class="glyphicon glyphicon-trash"></span> Limpiar filtros</button>
+
 		  </div>
 		</div>
 		<div class="body">
@@ -123,7 +119,7 @@
         },
     	"ajax": {
             "url": "includes/getGroupCarreteras.php",
-            "dataSrc": ""
+            "dataSrc": "data"
         },
         "columns": [            
             { "data": "carretera" },
@@ -147,7 +143,7 @@
 
 						});
 					btn.appendTo(td);*/
-					console.log(sData);
+					
 					var btn = $("<button>");
 						btn.text('Inventario');
 						btn.click(function(event) {
@@ -163,6 +159,43 @@
         ]        
     });
 	
+
+
+var dataFilter = {
+	  		table : $('#dataTramos').DataTable(), 
+	  		oTable : $('#dataTramos').dataTable(), 
+	  		searchByEstado : $('.searchByEstado'),
+			searchByAprovechamiento : $('.searchByAprovechamiento'),
+			searchByTramo : $('.searchByTramo'),
+	  		clear : $('.clear-filter'),
+	  		init : function(){
+	  			this.events();	  			
+	  		},
+	  		events : function(){
+	  			var _this = this;
+	  			this.searchByEstado.change(function(event) {
+	  				_this.filter($(this).val(),4);
+	  			});
+
+	  			this.searchByTramo.keyup(function(event) {
+	  				_this.filter($(this).val(),1);
+	  			});
+
+	  			this.clear.click(function(event) {
+			    	_this.clearFilter();
+			    });
+	  		},
+	  		filter : function(val,index){	  			
+	  			this.oTable.fnFilter(val,index);
+	  		},
+	  		clearFilter : function(){
+	  			this.oTable.fnFilter('',8);
+				this.oTable.fnFilter('');				
+	  		}
+	  };
+
+	dataFilter.init();
+
  
  /* modal para carga */
  $( "body" ).on( "click", "#btnCarrilModal",function(){

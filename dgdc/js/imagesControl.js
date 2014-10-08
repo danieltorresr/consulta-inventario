@@ -17,6 +17,8 @@ var imagesNavigation = {
 	idEstacion : null,
 	map:null,
 	currentMarker : new google.maps.Marker(),
+	// title info 
+	info : $('.info'),
 	init: function(){		
 		this.events();
 		//this.first();
@@ -30,10 +32,17 @@ var imagesNavigation = {
 	     			if (lado != "meta") {	     					     				
 	     				_this["img"+lado].attr('src', imagenesjson[lado]);
 	     			}     			
-			   }
+			   }			  
 			_this.idEstacion = imagenesjson.meta.idEstacion;     
 			_this.currentOnMap(imagenesjson.meta.longitud,imagenesjson.meta.latitud);   			    
      	});     	
+	},
+	setTitle : function(data){
+		console.log('dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',data);
+		this.info.find('.carretera_label').text(data.carretera);
+		this.info.find('.sentido_label').text('S'+data.sentido);
+		this.info.find('.carril_label').text('C'+data.carril);
+		this.info.find('.tramo_label').text(data.tramo);
 	},
 	next: function(){
 		
@@ -61,7 +70,7 @@ var imagesNavigation = {
 	     			if (lado != "meta") {	     				
 	     				_this["img"+lado].attr('src', imagenesjson[lado]);
 	     			}	     			   			
-			   }
+			   }			   
 			_this.idEstacion = imagenesjson.meta.idEstacion;     
 			_this.currentOnMap(imagenesjson.meta.longitud,imagenesjson.meta.latitud);    
      	});
@@ -155,7 +164,8 @@ var imagesNavigation = {
 	     				_this["img"+lado].attr('src', imagenesjson[lado]);
 	     			}     			
 			   }
-			_this.currentOnMap(imagenesjson.meta.longitud,imagenesjson.meta.latitud);   			    
+			_this.currentOnMap(imagenesjson.meta.longitud,imagenesjson.meta.latitud);   
+			_this.setTitle(imagenesjson.meta); 			    
      	});		
 	},
 	error: function(){

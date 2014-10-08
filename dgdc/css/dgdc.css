@@ -43,3 +43,19 @@ option:first {
 #divTramos .dataTables_filter{
 	display: none;
 }
+
+.galery-control button{
+	width: 100px;
+}
+
+.galery-control .galery-prev{
+	float: left;
+}
+
+.galery-control .galery-next{
+	float: right;
+}
+
+#screenshot-modal .modal-body{
+	min-height: 545px;
+}
